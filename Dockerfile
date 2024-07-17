@@ -1,7 +1,6 @@
 FROM golang:alpine as builder
 WORKDIR project/
 COPY . .
-RUN ls -al
 RUN go mod tidy
 RUN  go build -o raft-cluster
 
