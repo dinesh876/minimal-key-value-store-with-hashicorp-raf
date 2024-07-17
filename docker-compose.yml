@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  raft-cluster-1:
+    build: .
+    environment:
+      - NODE_ID=1
+      - RAFT_PORT=2222
+      - HTTP_PORT=8222
+      - IFACE=eth0
+    ports:
+      - 2222:2222
+      - 8222:8222
+    networks:
+      - default
+  raft-cluster-2:
+    build: .
+    environment:
+      - NODE_ID=2
+      - RAFT_PORT=2223
+      - HTTP_PORT=8223
+      - IFACE=eth0
+    ports:
+      - 2223:2223
+      - 8223:8223
+    networks:
+      - default
